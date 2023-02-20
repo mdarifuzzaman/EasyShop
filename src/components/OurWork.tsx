@@ -1,8 +1,8 @@
-import { Text, Field, withDatasourceCheck, constants, GraphQLRequestClient, GetStaticComponentProps, useComponentProps, getFieldValue, getPublicUrl, RichText } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Text, Field, withDatasourceCheck, RichText } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 //import { sitecoreApiHost } from '../../src/temp/config';
 
-const publicUrl = getPublicUrl();
+
 type OurWorkProps = ComponentProps & {
   fields: {
     Title: Field<string>;
@@ -28,8 +28,8 @@ const OurWork = (props: OurWorkProps): JSX.Element => {
                      <p className="design_text">{<RichText field={props.fields.Description}></RichText> }</p>
                      <div className="design_section_2">
                         <div className="row">
-                          {props.fields.Page1 && props.fields.Page1.map((pro: any,index: Number) => (
-                            <div className="col-md-4" key={pro.name}>
+                          {props.fields.Page1 && props.fields.Page1.map((pro: any,index: number) => (
+                            <div className="col-md-4" key={index}>
                               <div className="box_main">
                                 <p className="chair_text">{pro.fields.Title.value}</p>
                                 <div className="image_3"><img src = {pro.fields.Images[0].url}></img></div>
@@ -48,8 +48,8 @@ const OurWork = (props: OurWorkProps): JSX.Element => {
                      <p className="design_text">{<RichText field={props.fields.Page2Description}></RichText>}</p>
                      <div className="design_section_2">
                         <div className="row">
-                          {props.fields.Page2 && props.fields.Page2.map((pro: any,index: Number) => (
-                            <div className="col-md-4" key={pro.name}>
+                          {props.fields.Page2 && props.fields.Page2.map((pro: any,index: number) => (
+                            <div className="col-md-4" key={index}>
                               <div className="box_main">
                                 <p className="chair_text">{pro.fields.Title.value}</p>
                                 <div className="image_3"><img src = {pro.fields.Images[0].url}></img></div>
@@ -68,8 +68,8 @@ const OurWork = (props: OurWorkProps): JSX.Element => {
                      <p className="design_text">{<RichText field={props.fields.Page3Description}></RichText>}</p>
                      <div className="design_section_2">
                         <div className="row">
-                          {props.fields.Page3 && props.fields.Page3.map((pro: any,index: Number) => (
-                            <div className="col-md-4" key={pro.name}>
+                          {props.fields.Page3 && props.fields.Page3.map((pro: any,index: number) => (
+                            <div className="col-md-4" key={index}>
                               <div className="box_main">
                                 <p className="chair_text">{pro.fields.Title.value}</p>
                                 <div className="image_3"><img src = { pro.fields.Images[0].url}></img></div>
