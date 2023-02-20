@@ -1,4 +1,4 @@
-import { Text, Field, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Field, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 
 type HeaderProps = ComponentProps & {
@@ -7,7 +7,9 @@ type HeaderProps = ComponentProps & {
   };
 };
 
-const Header = (props: HeaderProps): JSX.Element => (
+const Header = (props: HeaderProps): JSX.Element => {
+  console.log(props);
+  return (
   <div className="header_section">
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container">
@@ -74,5 +76,6 @@ const Header = (props: HeaderProps): JSX.Element => (
     </nav>
   </div>
 );
+      }
 
 export default withDatasourceCheck()<HeaderProps>(Header);

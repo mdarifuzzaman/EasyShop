@@ -1,4 +1,4 @@
-import { Text, Field, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Field, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 
 type ContactSectionProps = ComponentProps & {
@@ -7,7 +7,9 @@ type ContactSectionProps = ComponentProps & {
   };
 };
 
-const ContactSection = (props: ContactSectionProps): JSX.Element => (
+const ContactSection = (props: ContactSectionProps): JSX.Element => {
+   console.log(props);
+   return (
   <div className="contact_section layout_padding">
          <div className="container">
             <div className="contact_section_2">
@@ -34,5 +36,6 @@ const ContactSection = (props: ContactSectionProps): JSX.Element => (
          </div>
       </div>
 );
+   }
 
 export default withDatasourceCheck()<ContactSectionProps>(ContactSection);

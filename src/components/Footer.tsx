@@ -1,4 +1,4 @@
-import { Text, Field, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Field, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 
 type FooterProps = ComponentProps & {
@@ -7,7 +7,9 @@ type FooterProps = ComponentProps & {
   };
 };
 
-const Footer = (props: FooterProps): JSX.Element => (
+const Footer = (props: FooterProps): JSX.Element => {
+   console.log(props);
+   return (
   <div className="footer_section">
          <div className="container">
             <div className="footer_location_text">
@@ -50,5 +52,5 @@ const Footer = (props: FooterProps): JSX.Element => (
          </div>
       </div>
 );
-
+   }
 export default withDatasourceCheck()<FooterProps>(Footer);

@@ -1,13 +1,5 @@
-import { Text, Field, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
-import { ComponentProps } from 'lib/component-props';
 
-type NewsletterSectionProps = ComponentProps & {
-  fields: {
-    heading: Field<string>;
-  };
-};
-
-const NewsletterSection = (props: NewsletterSectionProps): JSX.Element => (
+const NewsletterSection = (): JSX.Element => (
   <div className="newsletter_section layout_padding">
          <div className="container">
             <div className="row">
@@ -24,4 +16,4 @@ const NewsletterSection = (props: NewsletterSectionProps): JSX.Element => (
       </div>
 );
 
-export default withDatasourceCheck()<NewsletterSectionProps>(NewsletterSection);
+export default NewsletterSection;

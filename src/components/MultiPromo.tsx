@@ -1,4 +1,4 @@
-import { Text, Field, withDatasourceCheck, constants, GraphQLRequestClient, GetStaticComponentProps, useComponentProps, getFieldValue } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Field, withDatasourceCheck, constants, GraphQLRequestClient, GetStaticComponentProps, useComponentProps } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 import config from 'temp/config';
 
