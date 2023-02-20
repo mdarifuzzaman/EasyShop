@@ -1,0 +1,32 @@
+{
+  "templates": [],
+  "placeholders": [
+    {
+      "name": "jss-main"
+    },
+    {
+      "name": "map-placeholder"
+    },
+    {
+      "name": "product-category"
+    },
+    {
+      "name": "product-categories"
+    }
+  ],
+  "appName": "easyshop",
+  "language": "en",
+  "renderings": [],
+  "wipeExisting": false,
+  "rootPlaceholders": [
+    "jss-main",
+    "map-placeholder",
+    "product-category",
+    "product-categories"
+  ],
+  "items": {
+    "routes": [],
+    "nonRoutes": []
+  },
+  "dictionary": []
+}
