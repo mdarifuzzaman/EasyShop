@@ -54,6 +54,11 @@ const Header = (props: HeaderProps): JSX.Element => {
                 Contact Us
               </a>
             </li>
+            <li className="nav-item">
+              <a className="nav-link" href="https://mdar.m-pages.com/v0jcP4/announcement">
+                Announcements
+              </a>
+            </li>
           </ul>
           <form className="form-inline my-2 my-lg-0">
             <div className="search_icon">
