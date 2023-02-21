@@ -44,8 +44,12 @@ const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
         <link rel="stylesheet" href={`${publicUrl}/css/owl.carousel.min.css`} />
         <link rel="stylesheet" href={`${publicUrl}/css/owl.theme.default.min.css`} />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen"></link>
+
+        <script src={`${publicUrl}/js/moosend.js`}></script>
+        
       </Head>
 
+      <script src={`${publicUrl}/js/subs.js`}></script>   
       <script src={`${publicUrl}/js/jquery.min.js`}></script>
       <script src={`${publicUrl}/js/jquery.min.js`}></script>
       <script src={`${publicUrl}/js/popper.min.js`}></script>
