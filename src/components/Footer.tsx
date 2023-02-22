@@ -14,9 +14,9 @@ const Footer = (props: FooterProps): JSX.Element => {
          <div className="container">
             <div className="footer_location_text">
                <ul>
-                  <li><img src="images/map-icon.png" /><span className="padding_left_10"><a href="#">Loram Ipusm hosting web</a></span></li>
-                  <li><img src="images/call-icon.png" /><span className="padding_left_10"><a href="#">Call : +7586656566</a></span></li>
-                  <li><img src="images/mail-icon.png" /><span className="padding_left_10"><a href="#">demo@gmail.com</a></span></li>
+                  <li><img src="images/map-icon.png" /><span className="padding_left_10"><a href="#">Location</a></span></li>
+                  <li><img src="images/call-icon.png" /><span className="padding_left_10"><a href="#">Call : +00000000000</a></span></li>
+                  <li><img src="images/mail-icon.png" /><span className="padding_left_10"><a href="#">test@gmail.com</a></span></li>
                </ul>
             </div>
             <div className="row">
@@ -24,16 +24,16 @@ const Footer = (props: FooterProps): JSX.Element => {
                   <h2 className="useful_text">Useful link </h2>
                   <div className="footer_menu">
                      <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="design.html">Our Designe</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/">About</a></li>
+                        <li><a href="/design">Our Design</a></li>
+                        <li><a href="/contact">Contact Us</a></li>
                      </ul>
                   </div>
                </div>
                <div className="col-lg-3 col-sm-6">
-                  <h2 className="useful_text">Repair</h2>
-                  <p className="lorem_text">Lorem ipsum dolor sit amet, consectetur  adipiscinaliqua  Loreadipiscing </p>
+                  <h2 className="useful_text">Other Info</h2>
+                  <p className="lorem_text">Other info here </p>
                </div>
                <div className="col-lg-3 col-sm-6">
                   <h2 className="useful_text">Social Media</h2>
@@ -45,8 +45,8 @@ const Footer = (props: FooterProps): JSX.Element => {
                   </div>
                </div>
                <div className="col-sm-6 col-lg-3">
-                  <h1 className="useful_text">Our Repair center</h1>
-                  <p className="footer_text">Lorem ipsum dolor sit amet, consectetur adipiscinaliquaLoreadipiscing </p>
+                  <h1 className="useful_text">Information placeholder</h1>
+                  <p className="footer_text"> </p>
                </div>
             </div>
          </div>

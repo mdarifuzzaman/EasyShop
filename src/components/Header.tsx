@@ -34,11 +34,11 @@ const Header = (props: HeaderProps): JSX.Element => {
                 Home
               </a>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <a className="nav-link" href="/about">
                 About
               </a>
-            </li>
+            </li> */}
             <li className="nav-item">
               <a className="nav-link" href="/design">
                 Our Design
@@ -64,7 +64,7 @@ const Header = (props: HeaderProps): JSX.Element => {
             <div className="search_icon">
               <ul>
                 <li>
-                  <a href="#">
+                  <a href="/search">
                     <img src="images/search-icon.png" />
                   </a>
                 </li>
