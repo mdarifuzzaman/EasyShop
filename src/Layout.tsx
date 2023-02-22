@@ -36,7 +36,7 @@ const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
         <link rel="icon" href={`${publicUrl}/favicon.ico`} />
         <link rel="stylesheet" href={`${publicUrl}/css/bootstrap.min.css`} />     
         <link rel="stylesheet" href={`${publicUrl}/css/style.css`} />        
-        <link rel="stylesheet" href={`${publicUrl}/css/responsive.css`} />
+        <link rel="stylesheet" href={`${publicUrl}/css/responsive.css`} /> 
         
         <link rel="icon" href={`${publicUrl}/images/fevicon.png`} type="image/gif" />
         <link rel="stylesheet" href={`${publicUrl}/css/jquery.mCustomScrollbar.min.css`} />

@@ -6,7 +6,10 @@
   "config": {
     "appName": "easyshop",
     "rootPlaceholders": [
-      "jss-main", "map-placeholder", "product-category", "product-categories"
+      "jss-main",
+      "map-placeholder",
+      "product-category",
+      "product-categories"
     ],
     "sitecoreConfigPath": "/App_Config/Include/zzz",
     "graphQLEndpointPath": "/sitecore/api/graph/edge",
@@ -29,6 +32,8 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
+    "@sitecore-discover/react": "^1.0.0-alpha.19",
+    "@sitecore-discover/ui": "^1.0.0-alpha.19",
     "@sitecore-jss/sitecore-jss-nextjs": "^20.1.3",
     "bootstrap": "^5.1.3",
     "font-awesome": "^4.7.0",

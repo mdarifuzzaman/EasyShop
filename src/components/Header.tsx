@@ -45,7 +45,7 @@ const Header = (props: HeaderProps): JSX.Element => {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/shop">
+              <a className="nav-link" href="/product-recommendation">
                 Shop
               </a>
             </li>
