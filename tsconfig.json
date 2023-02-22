@@ -34,7 +34,7 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx",
+    "**/*.tsx", "src/components/styled-components-parts/styled.js",
   ],
   "exclude": [
     "node_modules"
