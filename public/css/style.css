@@ -566,7 +566,7 @@ button {
 #my_slider a.carousel-control-next {
     position: absolute;
     right: 615px;
-    top: 110%;
+    top: 108%;
     background-color: #7c2c0c;
     color: #ffffff;
 }
@@ -574,7 +574,7 @@ button {
 #my_slider a.carousel-control-prev {
     position: absolute;
     left: 615px;
-    top: 110%;
+    top: 108%;
 }
 
 #my_slider .carousel-control-prev,

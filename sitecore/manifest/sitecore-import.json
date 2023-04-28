@@ -12,6 +12,15 @@
     },
     {
       "name": "product-categories"
+    },
+    {
+      "name": "headless-header"
+    },
+    {
+      "name": "headless-main"
+    },
+    {
+      "name": "headless-footer"
     }
   ],
   "appName": "easyshop",
@@ -22,11 +31,9 @@
     "jss-main",
     "map-placeholder",
     "product-category",
-    "product-categories"
-  ],
-  "items": {
-    "routes": [],
-    "nonRoutes": []
-  },
-  "dictionary": []
+    "product-categories",
+    "headless-header",
+    "headless-main",
+    "headless-footer"
+  ]
 }

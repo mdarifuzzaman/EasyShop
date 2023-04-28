@@ -45,7 +45,7 @@ export const SearchResultsRowGrid = ({
     context: {
       sortType = defaultSortType,
       sortDirection = defaultSortDirection,
-      page = defaultPage,
+      page = defaultPage,      
       productsPerPage = defaultProductsPerPage,
     },
     queryResult: {

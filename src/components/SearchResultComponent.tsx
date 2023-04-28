@@ -14,7 +14,7 @@ export const SearchResultsBasic = ({
   defaultSortType = 'featured',
   defaultSortDirection = 'desc',
   defaultPage = 1,
-  defaultKeyphrase = '',
+  defaultKeyphrase = 'watch',
   defaultProductsPerPage = 24,
 }) => {
   /** *** Component Logic Section *******/

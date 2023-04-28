@@ -1,14 +1,14 @@
 import React, { useCallback, useState } from 'react';
 
-import { WidgetDataType, usePreviewSearch, widget } from '@sitecore-discover/react';
-import { Presence } from '@sitecore-discover/ui';
-
+import { WidgetDataType, widget } from '@sitecore-discover/react';
+import { Presence, usePreviewSearchWithLocks } from '@sitecore-discover/ui';
 import {
   DefaultStyledTrigger,
   Group,
   Link,
   LoaderAnimation,
   LoaderContainer,
+  SearchGroupHeading,
   StyledGrid,
   StyledGroupList,
   StyledInputTrigger,
@@ -20,14 +20,29 @@ import {
   StyledSubContent,
   StyledSubItem,
   StyledSubList,
+  StyledTrigger,
 } from './styled-components-parts/preview-styled';
 
 export const PreviewSearchProductsOnlyStyled = ({ defaultProductsPerPage = 6 }) => {
   const {
+    setLock,
+    trendingCategoriesToShow,
+    categoriesToShow,
+    suggestionsToShow,
     context: { productsPerPage = defaultProductsPerPage },
-    actions: { onKeyphraseChange, onProductClick },
-    queryResult: { isFetching, isLoading, data: { content: { product: { value: products = [] } = {} } = {} } = {} },
-  } = usePreviewSearch((query) => {
+    actions: {
+      onKeyphraseChange,
+      onCategoryChange,
+      onSuggestionChange,
+      onTrendingCategoryChange,
+      onProductClick,
+    },
+    queryResult: {
+      isFetching,
+      isLoading,
+      data: { content: { product: { value: products = [] } = {} } = {} } = {},
+    },
+  } = usePreviewSearchWithLocks((query: any) => {
     query.getRequest().setNumberProducts(productsPerPage);
     return {
       productsPerPage,
@@ -36,14 +51,35 @@ export const PreviewSearchProductsOnlyStyled = ({ defaultProductsPerPage = 6 }) 
 
   const keyphraseHandler = useCallback((event) => {
     const target = event.target;
+    setLock(false);
     setActiveItem('defaultProductsResults');
     onKeyphraseChange({ keyphrase: target.value });
+  }, []);
+
+  const trendingCategoryHandler = useCallback((text: any) => {
+    setLock(false);
+    setActiveItem(text);
+    onTrendingCategoryChange({ trendingCategory: text });
+  }, []);
+
+  const categoryHandler = useCallback((text: any) => {
+    setLock(true);
+    setActiveItem(text);
+    onCategoryChange({ category: text });
+  }, []);
+
+  const suggestionHandler = useCallback((text: any) => {
+    setLock(true);
+    setActiveItem(text);
+    onSuggestionChange({ suggestion: text });
   }, []);
 
   const loading = isLoading || isFetching;
   const [activeItem, setActiveItem] = useState('defaultProductsResults');
   return (
-    <div className='row'><div className='col-lg-6'><StyledRoot>
+    <div className="row">
+      <div className="col-lg-12">
+      <StyledRoot>
       <StyledMainList>
         <StyledMainListItem>
           <StyledInputTrigger onKeyUp={keyphraseHandler} autoComplete="off" />
@@ -66,6 +102,119 @@ export const PreviewSearchProductsOnlyStyled = ({ defaultProductsPerPage = 6 }) 
             {!loading && (
               <StyledSubContent orientation="vertical" value={activeItem}>
                 <StyledGroupList>
+                  {trendingCategoriesToShow.length > 0 && (
+                    <>
+                      <SearchGroupHeading>Trending Categories</SearchGroupHeading>
+                      {trendingCategoriesToShow.map(({ text }: any) => (
+                        <Group value={text} key={text}>
+                          <StyledTrigger
+                            onMouseOver={(e: any) => {
+                              const { target } = e;
+                              target.focus();
+                            }}
+                            onFocus={() => trendingCategoryHandler(text)}
+                          >
+                            {text}
+                          </StyledTrigger>
+                          <StyledGrid>
+                            <StyledSubList>
+                              {products.map((p, i) => (
+                                <StyledSubItem key={i.toString()}>
+                                  <Link
+                                    href="#"
+                                    onClick={(e: any) => {
+                                      e.preventDefault();
+                                      onProductClick({ sku: p.sku || '' });
+                                      // add redirection or any action
+                                    }}
+                                  >
+                                    <StyledProductCard.Root product={p}>
+                                      <StyledProductCard.Image />
+                                      <StyledProductCard.Name />
+                                      {p.final_price && (
+                                        <StyledProductCard.Price>${p.final_price}</StyledProductCard.Price>
+                                      )}
+                                    </StyledProductCard.Root>
+                                  </Link>
+                                </StyledSubItem>
+                              ))}
+                            </StyledSubList>
+                          </StyledGrid>
+                        </Group>
+                      ))}
+                    </>
+                  )}
+
+                  {categoriesToShow.length > 0 && (
+                    <>
+                      <SearchGroupHeading>Categories</SearchGroupHeading>
+                      {categoriesToShow.map(({ text }: any) => (
+                        <Group value={text} key={text}>
+                          <StyledTrigger
+                            onMouseOver={(e: any) => {
+                              const { target } = e;
+                              target.focus();
+                            }}
+                            onFocus={() => categoryHandler(text)}
+                          >
+                            {text}
+                          </StyledTrigger>
+                          <StyledGrid>
+                            <StyledSubList>
+                              {products.map((p, i) => (
+                                <StyledSubItem key={i.toString()}>
+                                  <Link href="#">
+                                    <StyledProductCard.Root product={p}>
+                                      <StyledProductCard.Image />
+                                      <StyledProductCard.Name />
+                                      {p.final_price && (
+                                        <StyledProductCard.Price>${p.final_price}</StyledProductCard.Price>
+                                      )}
+                                    </StyledProductCard.Root>
+                                  </Link>
+                                </StyledSubItem>
+                              ))}
+                            </StyledSubList>
+                          </StyledGrid>
+                        </Group>
+                      ))}
+                    </>
+                  )}
+                  {suggestionsToShow.length > 0 && (
+                    <>
+                      <SearchGroupHeading>Suggestions</SearchGroupHeading>
+                      {suggestionsToShow.map(({ text }: any) => (
+                        <Group value={text} key={text}>
+                          <StyledTrigger
+                            onMouseOver={(e: any) => {
+                              const { target } = e;
+                              target.focus();
+                            }}
+                            onFocus={() => suggestionHandler(text)}
+                          >
+                            {text}
+                          </StyledTrigger>
+                          <StyledGrid>
+                            <StyledSubList>
+                              {products.map((p, i) => (
+                                <StyledSubItem key={i.toString()}>
+                                  <Link href="#">
+                                    <StyledProductCard.Root product={p}>
+                                      <StyledProductCard.Image />
+                                      <StyledProductCard.Name />
+                                      {p.final_price && (
+                                        <StyledProductCard.Price>${p.final_price}</StyledProductCard.Price>
+                                      )}
+                                    </StyledProductCard.Root>
+                                  </Link>
+                                </StyledSubItem>
+                              ))}
+                            </StyledSubList>
+                          </StyledGrid>
+                        </Group>
+                      ))}
+                    </>
+                  )}
                   {/* ul */}
                   <Group value="defaultProductsResults" key="defaultProductsResults">
                     {/* li */}
@@ -76,14 +225,7 @@ export const PreviewSearchProductsOnlyStyled = ({ defaultProductsPerPage = 6 }) 
                         {products.map((p, i) => (
                           <StyledSubItem key={i.toString()}>
                             {/* li */}
-                            <Link
-                              href="#"
-                              onClick={(e: any) => {
-                                e.preventDefault();
-                                onProductClick({ sku: p.sku || '' });
-                                // add redirection or any action
-                              }}
-                            >
+                            <Link href="#">
                               <StyledProductCard.Root product={p}>
                                 <StyledProductCard.Image />
                                 <StyledProductCard.Name />
@@ -101,8 +243,13 @@ export const PreviewSearchProductsOnlyStyled = ({ defaultProductsPerPage = 6 }) 
           </StyledMainContent>
         </StyledMainListItem>
       </StyledMainList>
-    </StyledRoot></div></div>
+    </StyledRoot>
+      </div>
+    </div>
   );
 };
-const PreviewSearchProductsOnlyStyledWidget = widget(PreviewSearchProductsOnlyStyled, WidgetDataType.PREVIEW_SEARCH);
+const PreviewSearchProductsOnlyStyledWidget = widget(
+  PreviewSearchProductsOnlyStyled,
+  WidgetDataType.PREVIEW_SEARCH
+);
 export default PreviewSearchProductsOnlyStyledWidget;

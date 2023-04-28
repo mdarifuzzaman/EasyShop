@@ -1,7 +1,7 @@
 import {
-  LayoutService,
-  RestLayoutService,
   GraphQLLayoutService,
+  LayoutService,
+  RestLayoutService
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import config from 'temp/config';
 
@@ -11,7 +11,7 @@ export class LayoutServiceFactory {
       ? new GraphQLLayoutService({
           endpoint: config.graphQLEndpoint,
           apiKey: config.sitecoreApiKey,
-          siteName: config.jssAppName,
+          siteName: config.jssAppName          
         })
       : new RestLayoutService({
           apiHost: config.sitecoreApiHost,

@@ -24,7 +24,7 @@ export const RecommendationBasic = ({ title = '', productsToDisplay = 6 }) => {
           <div className='col-lg-12' style={{display: "flex", flexWrap: "wrap", alignItems: "flex-start", justifyContent: "center"}}>
             {products.map((p, index) => (
                 <div key={`product-${index}`}>
-                    <h3><a href="#" onClick={() => onProductClick({ sku: p.sku || '' })}>{p.name}</a></h3>
+                    <h3><a href={"/products?sku=" + p.sku } onClick={() => onProductClick({ sku: p.sku || '' })}>{p.name}</a></h3>
                     <img src={p.image_url} />
                     {p.final_price && <span>${p.final_price}</span>}
                 </div>

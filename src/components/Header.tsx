@@ -45,13 +45,18 @@ const Header = (props: HeaderProps): JSX.Element => {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/product-recommendation">
+              <a className="nav-link" href="/products">
                 Shop
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/contact">
-                Contact Us
+              <a className="nav-link" href="/order-cloud">
+                E-Commerce
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="/sitex/about-us">
+                About us (Multisite)
               </a>
             </li>
             <li className="nav-item">

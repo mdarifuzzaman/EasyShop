@@ -41,6 +41,11 @@ const nextConfig = {
         source: '/sitecore/api/:path*',
         destination: `${jssConfig.sitecoreApiHost}/sitecore/api/:path*`,
       },
+      //form submit
+      {
+        source: '/api/jss/:path*',
+        destination: `${jssConfig.sitecoreApiHost}/api/jss/:path*`
+      },
       // media items
       {
         source: '/-/:path*',
@@ -50,6 +55,10 @@ const nextConfig = {
       {
         source: '/layouts/system/:path*',
         destination: `${jssConfig.sitecoreApiHost}/layouts/system/:path*`,
+      },
+      {
+        source: '/sitex/about-us',
+        destination: `/about`,
       },
     ];
   },
